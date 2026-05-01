@@ -10,7 +10,7 @@
 Clone the repository and install dependencies:
 
 ```bash
-git clone [<repo-url>](https://github.com/Chesco216/users-recipes.git)
+git clone https://github.com/Chesco216/users-recipes.git
 cd users-recipes
 ```
 
