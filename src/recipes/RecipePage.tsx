@@ -4,6 +4,7 @@ import { CustomPagination } from "@/components/custom/CustomPagination"
 import { useSearchParams } from "react-router"
 import { getRecipes } from "./actions/get-recipes"
 import { RecipeGrid } from "./components/RecipeGrid"
+import type { RecipeFromStorage } from "./actions/update-user-favorite"
 
 export const RecipePage = () => {
 
@@ -17,7 +18,22 @@ export const RecipePage = () => {
 
   useEffect(() => {
     getRecipes(skip.toString(), limit.toString())
-      .then(res => setRecipes(res))
+      .then(res => {
+        const storedUpdates: RecipeFromStorage = JSON.parse(localStorage.getItem('recipes') ?? 'null')
+        if (storedUpdates) {
+          const updatedRecipes = res?.recipes.map(r => {
+            const isUpdated = storedUpdates.updates.find(u => u.recipeId === r.id)
+            if (isUpdated) {
+              return { ...r, userId: isUpdated.userId }
+            } else {
+              return r
+            }
+          })
+          setRecipes({ ...res, recipes: updatedRecipes })
+        } else {
+          setRecipes(res)
+        }
+      })
       .catch(err => console.log(err))
   }, [limit, skip])
 
