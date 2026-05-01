@@ -10,8 +10,8 @@
 Clone the repository and install dependencies:
 
 ```bash
-git clone <repo-url>
-cd <project-folder>
+git clone [<repo-url>](https://github.com/Chesco216/users-recipes.git)
+cd users-recipes
 ```
 
 ## Configure .env
