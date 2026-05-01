@@ -1,0 +1,15 @@
+import type { Recipe } from "../schema/Recipes.schema"
+
+interface Props {
+  recipe: Recipe
+  focused: number
+}
+
+export const RecipeCard = ({ recipe, focused }: Props) => {
+  return (
+    <div >
+      <img className='w-25' src={recipe.image} />
+    </div>
+  )
+}
+
