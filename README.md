@@ -14,6 +14,10 @@ git clone <repo-url>
 cd <project-folder>
 ```
 
+## Configure .env
+
+In your .env file add the variable as the .env.example file
+
 ```bash
 # bun
 bun install
