@@ -11,6 +11,7 @@ export const MainLayout = () => {
 
   return (
     <main className="w-full p-8 xl:p-20">
+      <header className="w-full flex flex-row justify-center items-center"><img className="w-fit" src="https://www.dazasoftware.com/assets/img/daz_logo2.png" /></header>
       <Tabs className="w-full p-2">
         <TabsList className="w-full">
           <TabsTrigger className="text-2xl" onClick={() => handleTabsChange('users')} value="users">Usuarios</TabsTrigger>
